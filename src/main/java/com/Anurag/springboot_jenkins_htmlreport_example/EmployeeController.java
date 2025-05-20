@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -48,6 +49,16 @@ public class EmployeeController {
 	
 	@PutMapping("/update-id/{id}")
 	public Employee update(@RequestBody Employee employee, @PathVariable int id) {
+		Employee emp=erepo.findById(id).get(id);
+	
+		emp.setCountry(employee.getCountry());
+		emp.setName(employee.getName());
+		erepo.save(emp);
+		return emp;
+	}
+	// partial update
+	@PatchMapping("/partial/{id}")
+	public Employee partial(@RequestBody Employee employee, @PathVariable int id) {
 		Employee emp=erepo.findById(id).get(id);
 		emp.setAge(employee.getAge());
 		emp.setCity(employee.getCity());

@@ -1,9 +1,15 @@
 package com.Anurag.springboot_jenkins_htmlreport_example;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+@DynamicInsert
+@DynamicUpdate
 
 @Entity(name = "employee")
 public class Employee {
