@@ -50,8 +50,7 @@ public class EmployeeController {
 	@PutMapping("/update-id/{id}")
 	public Employee update(@RequestBody Employee employee, @PathVariable int id) {
 		Employee emp=erepo.findById(id).get(id);
-		emp.setAge(employee.getAge());
-		emp.setCity(employee.getCity());
+	
 		emp.setCountry(employee.getCountry());
 		emp.setName(employee.getName());
 		erepo.save(emp);
