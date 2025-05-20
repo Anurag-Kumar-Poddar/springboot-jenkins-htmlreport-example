@@ -42,7 +42,7 @@ public class EmployeeController {
 		return erepo.findByCountry(country);
 	}
 	
-	@GetMapping("/by-pincode/{pincode}")
+	@GetMapping("/by-pincode/{pincode}")// search by pincode
 	public List<Employee> bypincode(@PathVariable int pincode) {
 		return erepo.findByPincode(pincode);
 	}
