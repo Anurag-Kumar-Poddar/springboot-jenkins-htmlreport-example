@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class EmployeeController {
-	@Autowired
-	EmployeeRepository erepo;
+//	@Autowired
+//	EmployeeRepository erepo;
 	@GetMapping("/test")
 	public String test() {
 		return "This is test only";
 	}
 	
+	/*
 	@PostMapping("/save")
 	public String save(@RequestBody Employee employee) {
 		erepo.save(employee);
@@ -47,6 +48,7 @@ public class EmployeeController {
 		return erepo.findByPincode(pincode);
 	}
 	
+	// put mapping example with path
 	@PutMapping("/update-id/{id}")
 	public Employee update(@RequestBody Employee employee, @PathVariable int id) {
 		Employee emp=erepo.findById(id).get(id);
@@ -67,4 +69,5 @@ public class EmployeeController {
 		erepo.save(emp);
 		return emp;
 	}
+	*/
 }
